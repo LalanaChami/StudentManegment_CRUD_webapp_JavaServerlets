@@ -1,4 +1,4 @@
-<%@ page import="java.util.*,com.jspDemo.jsp.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
 	<html>
@@ -8,38 +8,35 @@
 			<link type="text/css" rel="stylesheet" href="css/style.css">
 		</head>
 	
-		<%
-		//get the student list from the student list
-		List<Student> theStudents = 
-			(List<Student>) request.getAttribute("STUDENT_LIST");
 		
-		%>
 	
 		<body>
 			<div id="wrapper">
 				<div id ="header">
-					<h2>FooBar University</h2>
+					<h2>University of Kelaniya</h2>
 				</div>
 			</div>
 			
 			<div id="container">
 				<div id="content">
 					<table>
+					
 						<tr>
 							<th>First Name</th>
 							<th>Last Name</th>
 							<th>Email</th>
 						</tr>
 						
-						<% for (Student tempStudent : theStudents){ %>
+						<c:forEach var="tempStudent" items="${STUDENT_LIST}">
+					
+							<tr>
+								<td> ${tempStudent.firstName} </td>
+								<td> ${tempStudent.lastName} </td>
+								<td> ${tempStudent.email} </td>
+							</tr>
 						
-						<tr>
-							<th><%= tempStudent.getFirstName() %></th>
-							<th><%= tempStudent.getLastName() %></th>
-							<th><%= tempStudent.getEmail() %></th>
-						</tr>
+						</c:forEach>
 						
-						<% } %>
 					</table>
 				</div>
 			</div>
