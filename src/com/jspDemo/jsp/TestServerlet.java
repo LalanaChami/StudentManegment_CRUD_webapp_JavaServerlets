@@ -53,7 +53,7 @@ public class TestServerlet extends HttpServlet {
 			myRs = myStmt.executeQuery(sql);
 			
 			while(myRs.next()) {
-				String email = myRs.getString("email");
+				String email = myRs.getString("last_name");
 				out.println(email);
 			}
 			

@@ -33,7 +33,7 @@ public class StudentDbUtil {
 		
 		
 		//sql query
-			String sql = "select * from student oder by last_name";
+			String sql = "select * from student order by last_name";
 			myStmt = myConn.createStatement();
 		
 		//executing the query
